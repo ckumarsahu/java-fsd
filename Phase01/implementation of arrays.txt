@@ -1,0 +1,40 @@
+public class ArraysVerificationExample {
+
+    public static void main(String[] args) {
+        // Declaration and initialization of an array of integers
+        int[] intArray = {1, 2, 3, 4, 5};
+
+        // Displaying elements of the integer array
+        System.out.println("Integer Array Elements:");
+        for (int i : intArray) {
+            System.out.print(i + " ");
+        }
+        System.out.println(); // Move to the next line
+
+        // Declaration and initialization of an array of strings
+        String[] stringArray = {"Java", "C++", "Python", "JavaScript"};
+
+        // Displaying elements of the string array
+        System.out.println("String Array Elements:");
+        for (String str : stringArray) {
+            System.out.print(str + " ");
+        }
+        System.out.println(); // Move to the next line
+
+        // Declaration and initialization of a two-dimensional array
+        int[][] twoDArray = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+
+        // Displaying elements of the two-dimensional array
+        System.out.println("Two-Dimensional Array Elements:");
+        for (int[] row : twoDArray) {
+            for (int num : row) {
+                System.out.print(num + " ");
+            }
+            System.out.println(); // Move to the next line for the next row
+        }
+    }
+}

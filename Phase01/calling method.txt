@@ -1,0 +1,52 @@
+public class MethodVerificationExample {
+
+    // Method with no parameters and no return value
+    public void greet() {
+        System.out.println("Hello, World!");
+    }
+
+    // Method with parameters and a return value
+    public int addNumbers(int a, int b) {
+        return a + b;
+    }
+
+    
+    public void printMessage(String message) {
+        System.out.println("Message: " + message);
+    }
+
+    
+    public void printMessage(int number) {
+        System.out.println("Number: " + number);
+    }
+
+    public static void main(String[] args) {
+        MethodVerificationExample example = new MethodVerificationExample();
+
+        
+        example.greet();
+
+       
+        int sum = example.addNumbers(5, 7);
+        System.out.println("Sum of numbers: " + sum);
+
+        
+        example.printMessage("This is a string message");
+
+
+        example.printMessage(42);
+
+        staticMethod();
+
+        
+        example.printMessage("Using an object reference");
+
+       
+        MethodVerificationExample.staticMethod();
+    }
+
+    
+    public static void staticMethod() {
+        System.out.println("This is a static method.");
+    }
+}

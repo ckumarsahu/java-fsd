@@ -1,0 +1,16 @@
+public class TypeCasting {
+    public static void main(String[] args) {
+   
+        int intValue = 10;
+        double doubleValue = intValue; 
+        System.out.println("Implicit Casting: int to double - Result: " + doubleValue);
+        double anotherDoubleValue = 15.75;
+
+        int anotherIntValue = (int) anotherDoubleValue
+        System.out.println("Explicit Casting: double to int - Result: " + anotherIntValue);
+        int largeIntValue = 1000;
+
+        byte byteValue = (byte) largeIntValue; // Explicit casting from int to byte
+        System.out.println("Explicit Casting with Data Loss: int to byte - Result: " + byteValue);
+    }
+}

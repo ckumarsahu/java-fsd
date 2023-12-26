@@ -1,0 +1,58 @@
+public class InnerClassesVerificationExample {
+
+    // Member Inner Class
+    public class MemberInnerClass {
+        public void display() {
+            System.out.println("Member Inner Class");
+        }
+    }
+
+    // Static Nested Class
+    public static class StaticNestedClass {
+        public void display() {
+            System.out.println("Static Nested Class");
+        }
+    }
+
+    public void outerMethod() {
+        // Local Inner Class
+        class LocalInnerClass {
+            public void display() {
+                System.out.println("Local Inner Class");
+            }
+        }
+
+        LocalInnerClass localInner = new LocalInnerClass();
+        localInner.display();
+    }
+
+    public void anonymousInnerClass() {
+        // Anonymous Inner Class
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Anonymous Inner Class");
+            }
+        };
+
+        new Thread(runnable).start();
+    }
+
+    public static void main(String[] args) {
+        InnerClassesVerificationExample outerInstance = new InnerClassesVerificationExample();
+
+        // Creating instances of inner classes
+        MemberInnerClass memberInner = outerInstance.new MemberInnerClass();
+        StaticNestedClass staticNested = new StaticNestedClass();
+
+        // Invoking methods of inner classes
+        memberInner.display();
+        staticNested.display();
+
+        // Invoking local inner class method
+        outerInstance.outerMethod();
+
+        // Invoking anonymous inner class method
+        outerInstance.anonymousInnerClass();
+    }
+}

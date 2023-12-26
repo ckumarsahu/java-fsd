@@ -1,0 +1,52 @@
+// Example class with different access modifiers
+public class AccessModifiersExample {
+
+    // Public field accessible from any class
+    public int publicField = 10;
+
+    // Protected field accessible within the package and by subclasses
+    protected int protectedField = 20;
+
+    // Default (package-private) field accessible within the same package
+    int defaultField = 30;
+
+    private int privateField = 40;
+
+  
+    public void publicMethod() {
+        System.out.println("Public Method");
+    }
+
+    
+    protected void protectedMethod() {
+        System.out.println("Protected Method");
+    }
+
+   
+    void defaultMethod() {
+        System.out.println("Default Method");
+    }
+
+    
+    private void privateMethod() {
+        System.out.println("Private Method");
+    }
+
+    
+    public static void main(String[] args) {
+        AccessModifiersExample example = new AccessModifiersExample();
+
+       
+        System.out.println("Public Field: " + example.publicField);
+        System.out.println("Protected Field: " + example.protectedField);
+        System.out.println("Default Field: " + example.defaultField);
+        System.out.println("Private Field: " + example.privateField);
+
+        
+        example.publicMethod();
+        example.protectedMethod();
+        example.defaultMethod();
+        example.privateMethod();
+    }
+}
+

@@ -1,0 +1,54 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegexVerificationExample {
+
+    public static void main(String[] args) {
+        // Example 1: Matching a specific pattern in a string
+        String inputString1 = "The quick brown fox jumps over the lazy dog";
+        String pattern1 = "fox";
+
+        System.out.println("Example 1:");
+        System.out.println("Input String: " + inputString1);
+        System.out.println("Pattern: " + pattern1);
+        System.out.println("Match: " + isPatternMatch(inputString1, pattern1));
+        System.out.println();
+
+        // Example 2: Matching digits in a string
+        String inputString2 = "123-456-7890";
+        String pattern2 = "\\d+"; // \\d represents a digit, and + means one or more
+
+        System.out.println("Example 2:");
+        System.out.println("Input String: " + inputString2);
+        System.out.println("Pattern: " + pattern2);
+        System.out.println("Match: " + isPatternMatch(inputString2, pattern2));
+        System.out.println();
+
+        // Example 3: Extracting email addresses from a string
+        String inputString3 = "Contact us at john@example.com or jane@example.org";
+        String pattern3 = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}";
+
+        System.out.println("Example 3:");
+        System.out.println("Input String: " + inputString3);
+        System.out.println("Pattern: " + pattern3);
+        extractAndPrintMatches(inputString3, pattern3);
+    }
+
+    // Helper method to check if a pattern matches the input string
+    private static boolean isPatternMatch(String input, String pattern) {
+        Pattern regex = Pattern.compile(pattern);
+        Matcher matcher = regex.matcher(input);
+        return matcher.find();
+    }
+
+    // Helper method to extract and print all matches of a pattern in the input string
+    private static void extractAndPrintMatches(String input, String pattern) {
+        Pattern regex = Pattern.compile(pattern);
+        Matcher matcher = regex.matcher(input);
+
+        System.out.println("Matches:");
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+        }
+    }
+}

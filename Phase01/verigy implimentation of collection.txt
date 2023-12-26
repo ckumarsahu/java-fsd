@@ -1,0 +1,60 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+public class CollectionsVerificationExample {
+
+    public static void main(String[] args) {
+        // ArrayList example
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("Java");
+        arrayList.add("Python");
+        arrayList.add("C++");
+
+        System.out.println("ArrayList Elements:");
+        for (String element : arrayList) {
+            System.out.println(element);
+        }
+        System.out.println();
+
+        // LinkedList example
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        linkedList.add(10);
+        linkedList.add(20);
+        linkedList.add(30);
+
+        System.out.println("LinkedList Elements:");
+        for (Integer element : linkedList) {
+            System.out.println(element);
+        }
+        System.out.println();
+
+        // HashMap example
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("One", 1);
+        hashMap.put("Two", 2);
+        hashMap.put("Three", 3);
+
+        System.out.println("HashMap Entries:");
+        for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        System.out.println();
+
+        // HashSet example
+        HashSet<Double> hashSet = new HashSet<>();
+        hashSet.add(3.14);
+        hashSet.add(2.71);
+        hashSet.add(1.618);
+
+        System.out.println("HashSet Elements:");
+        Iterator<Double> iterator = hashSet.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+}
