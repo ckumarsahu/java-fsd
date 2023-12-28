@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class ExceptionHandlingDemo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            // Read an integer from the user
+            System.out.print("Enter an integer: ");
+            int number = scanner.nextInt();
+
+            // Try to divide 100 by the entered number
+            int result = 100 / number;
+
+            // Display the result
+            System.out.println("Result of 100 divided by " + number + " is: " + result);
+        } catch (ArithmeticException e) {
+            // Handle arithmetic exception (division by zero)
+            System.out.println("Error: Division by zero is not allowed.");
+        } catch (java.util.InputMismatchException e) {
+            // Handle input mismatch exception (non-integer input)
+            System.out.println("Error: Please enter a valid integer.");
+            scanner.next(); // Consume the invalid input to avoid an infinite loop
+        } catch (Exception e) {
+            // Handle other exceptions
+            System.out.println("An unexpected error occurred: " + e.getMessage());
+        } finally {
+            // This block will be executed whether an exception occurs or not
+            System.out.println("Finally block: Closing resources.");
+
+            // Close the scanner in the finally block to ensure it gets closed
+            scanner.close();
+        }
+
+        System.out.println("Program continues after exception handling.");
+    }
+}

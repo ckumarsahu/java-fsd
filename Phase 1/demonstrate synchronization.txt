@@ -1,0 +1,37 @@
+class Counter {
+    private int count = 0;
+
+    // Synchronized method to increment the count
+    public synchronized void increment() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Thread.currentThread().getName() + " - Increment: " + (++count));
+
+            // Introducing a delay to simulate some processing time
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+public class SynchronizationExample {
+    public static void main(String[] args) {
+        // Creating a shared Counter object
+        Counter counter = new Counter();
+
+        // Creating two threads that share the same Counter object
+        Thread t1 = new Thread(() -> {
+            counter.increment();
+        }, "Thread-1");
+
+        Thread t2 = new Thread(() -> {
+            counter.increment();
+        }, "Thread-2");
+
+        // Starting both threads
+        t1.start();
+        t2.start();
+    }
+}

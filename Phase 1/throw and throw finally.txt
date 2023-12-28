@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+// Custom exception class
+class NegativeNumberException extends Exception {
+    public NegativeNumberException(String message) {
+        super(message);
+    }
+}
+
+public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            // Prompt the user to enter a positive number
+            System.out.print("Enter a positive number: ");
+            int userInput = scanner.nextInt();
+
+            // Check if the entered number is negative
+            if (userInput < 0) {
+                // Throw a custom exception if the number is negative
+                throw new NegativeNumberException("Negative numbers are not allowed.");
+            }
+
+            // Perform some operations with the user input
+            int result = performOperation(userInput);
+
+            // Display the result
+            System.out.println("Result of the operation: " + result);
+        } catch (NegativeNumberException e) {
+            // Handle the custom exception
+            System.out.println("Error: " + e.getMessage());
+        } catch (Exception e) {
+            // Handle other exceptions
+            System.out.println("An unexpected error occurred: " + e.getMessage());
+        } finally {
+            // This block will be executed whether an exception occurs or not
+            System.out.println("Finally block: Cleaning up resources.");
+
+            // Close the scanner in the finally block to ensure it gets closed
+            scanner.close();
+        }
+    }
+
+    // Method that performs some operation with the user input
+    private static int performOperation(int input) throws ArithmeticException {
+        // Throws an ArithmeticException if the input is zero
+        if (input == 0) {
+            throw new ArithmeticException("Cannot perform the operation with zero input.");
+        }
+
+        // Perform some arbitrary operation
+        return 100 / input;
+    }
+}

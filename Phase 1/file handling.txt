@@ -1,0 +1,63 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class FileReaderExample {
+    public static void main(String[] args) {
+        String filePath = "example.txt";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileWriterExample {
+    public static void main(String[] args) {
+        String filePath = "output.txt";
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write("Hello, this is a line in the file.");
+            writer.newLine(); // Platform-independent newline
+            writer.write("Another line.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }import java.io.File;
+
+public class FileExistsExample {
+    public static void main(String[] args) {
+        String filePath = "example.txt";
+        File file = new File(filePath);
+
+        if (file.exists()) {
+            System.out.println("File exists.");
+        } else {
+            System.out.println("File does not exist.");
+        }
+    }
+}
+import java.io.File;
+
+public class CreateDirectoryExample {
+    public static void main(String[] args) {
+        String directoryPath = "newDirectory";
+        File directory = new File(directoryPath);
+
+        if (directory.mkdir()) {
+            System.out.println("Directory created successfully.");
+        } else {
+            System.out.println("Failed to create directory.");
+        }
+    }
+}
+
+}
+

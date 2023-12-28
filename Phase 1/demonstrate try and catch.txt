@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class TryCatchExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter two numbers for division:");
+
+        try {
+            // Read two numbers from the user
+            System.out.print("Enter numerator: ");
+            int numerator = scanner.nextInt();
+
+            System.out.print("Enter denominator: ");
+            int denominator = scanner.nextInt();
+
+            // Perform division
+            int result = divide(numerator, denominator);
+
+            // Display the result
+            System.out.println("Result of division: " + result);
+        } catch (ArithmeticException e) {
+            // Catching ArithmeticException if division by zero occurs
+            System.out.println("Error: " + e.getMessage());
+        } catch (Exception e) {
+            // Catching a more general Exception (if any other exception occurs)
+            System

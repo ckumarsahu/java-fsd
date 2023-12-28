@@ -1,0 +1,83 @@
+// Example of a class representing a basic shape
+class Shape {
+    // Encapsulation: Private fields to hide implementation details
+    private String color;
+
+    // Constructor
+    public Shape(String color) {
+        this.color = color;
+    }
+
+    // Abstraction: Abstract method to be implemented by subclasses
+    public abstract double calculateArea();
+
+    // Getter method for color
+    public String getColor() {
+        return color;
+    }
+
+    // Setter method for color
+    public void setColor(String color) {
+        this.color = color;
+    }
+}
+
+// Example of a subclass (inheritance)
+class Circle extends Shape {
+    private double radius;
+
+    // Constructor
+    public Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+
+    // Polymorphism: Overriding the calculateArea method
+    @Override
+    public double calculateArea() {
+        return Math.PI * Math.pow(radius, 2);
+    }
+}
+
+// Example of another subclass (inheritance)
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    // Constructor
+    public Rectangle(String color, double length, double width) {
+        super(color);
+        this.length = length;
+        this.width = width;
+    }
+
+    // Polymorphism: Overriding the calculateArea method
+    @Override
+    public double calculateArea() {
+        return length * width;
+    }
+}
+
+public class ObjectOrientedExample {
+    public static void main(String[] args) {
+        // Creating objects of the subclasses
+        Circle circle = new Circle("Red", 5.0);
+        Rectangle rectangle = new Rectangle("Blue", 4.0, 6.0);
+
+        // Accessing properties using getter methods
+        System.out.println("Circle color: " + circle.getColor());
+        System.out.println("Rectangle color: " + rectangle.getColor());
+
+        // Accessing methods (polymorphism)
+        System.out.println("Circle area: " + circle.calculateArea());
+        System.out.println("Rectangle area: " + rectangle.calculateArea());
+
+        // Modifying properties using setter methods
+        circle.setColor("Green");
+        rectangle.setColor("Yellow");
+
+        // Displaying updated colors
+        System.out.println("Updated Circle color: " + circle.getColor());
+        System.out.println("Updated Rectangle color: " + rectangle.getColor());
+    }
+}
