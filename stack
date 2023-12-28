@@ -1,0 +1,55 @@
+import java.util.Stack;
+
+public class StackExample {
+
+    public static void main(String[] args) {
+        // Creating a stack
+        Stack<Integer> stack = new Stack<>();
+
+        // Pushing elements onto the stack
+        System.out.println("Pushing elements onto the stack:");
+        pushElement(stack, 10);
+        pushElement(stack, 20);
+        pushElement(stack, 30);
+
+        // Displaying the stack
+        displayStack(stack);
+
+        // Popping elements from the stack
+        System.out.println("\nPopping elements from the stack:");
+        popElement(stack);
+        popElement(stack);
+
+        // Displaying the stack after popping
+        displayStack(stack);
+    }
+
+    // Method to push an element onto the stack
+    private static void pushElement(Stack<Integer> stack, int element) {
+        System.out.println("Pushing " + element + " onto the stack.");
+        stack.push(element);
+    }
+
+    // Method to pop an element from the stack
+    private static void popElement(Stack<Integer> stack) {
+        if (stack.isEmpty()) {
+            System.out.println("Stack is empty. Cannot pop.");
+        } else {
+            int poppedElement = stack.pop();
+            System.out.println("Popped element: " + poppedElement);
+        }
+    }
+
+    // Method to display the elements of the stack
+    private static void displayStack(Stack<Integer> stack) {
+        if (stack.isEmpty()) {
+            System.out.println("Stack is empty.");
+        } else {
+            System.out.print("Stack: ");
+            for (int element : stack) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+}
