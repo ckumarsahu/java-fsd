@@ -1,0 +1,80 @@
+class Node {
+    int data;
+    Node next;
+    Node prev;
+
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class DoublyLinkedList {
+    private Node head;
+    private Node tail;
+
+    public DoublyLinkedList() {
+        this.head = null;
+        this.tail = null;
+    }
+
+    // Method to insert a new element at the end of the doubly linked list
+    public void insert(int newData) {
+        Node newNode = new Node(newData);
+
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+    }
+
+    // Method to traverse the doubly linked list in the forward direction
+    public void traverseForward() {
+        if (head == null) {
+            System.out.println("List is empty.");
+            return;
+        }
+
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
+
+    // Method to traverse the doubly linked list in the backward direction
+    public void traverseBackward() {
+        if (tail == null) {
+            System.out.println("List is empty.");
+            return;
+        }
+
+        Node current = tail;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.prev;
+        }
+        System.out.println();
+    }
+}
+
+public class DoublyLinkedListTraversal {
+    public static void main(String[] args) {
+        DoublyLinkedList doublyList = new DoublyLinkedList();
+        doublyList.insert(10);
+        doublyList.insert(20);
+        doublyList.insert(30);
+
+        System.out.println("Doubly Linked List in Forward Direction:");
+        doublyList.traverseForward();
+
+        System.out.println("Doubly Linked List in Backward Direction:");
+        doublyList.traverseBackward();
+    }
+}
