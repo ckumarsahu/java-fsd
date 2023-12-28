@@ -1,0 +1,45 @@
+public class RightRotateArray {
+
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int steps = 5;
+
+        System.out.println("Original Array: ");
+        printArray(array);
+
+        rightRotateArray(array, steps);
+
+        System.out.println("\nArray after right rotation by " + steps + " steps:");
+        printArray(array);
+    }
+
+    // Function to right rotate an array by 'steps' steps
+    private static void rightRotateArray(int[] arr, int steps) {
+        int n = arr.length;
+        steps = steps % n; // To handle cases where steps is greater than array length
+
+        // Create a temporary array to store the rotated elements
+        int[] temp = new int[steps];
+        for (int i = 0; i < steps; i++) {
+            temp[i] = arr[n - steps + i];
+        }
+
+        // Shift the remaining elements to the right
+        for (int i = n - 1; i >= steps; i--) {
+            arr[i] = arr[i - steps];
+        }
+
+        // Copy the rotated elements back to the original array
+        for (int i = 0; i < steps; i++) {
+            arr[i] = temp[i];
+        }
+    }
+
+    // Function to print the elements of an array
+    private static void printArray(int[] arr) {
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+}
