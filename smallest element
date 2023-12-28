@@ -1,0 +1,26 @@
+import java.util.Arrays;
+
+public class FourthSmallestElement {
+
+    public static void main(String[] args) {
+        int[] unsortedList = {10, 5, 8, 1, 7, 3, 9, 4, 2, 6};
+        
+        int fourthSmallest = findFourthSmallestElement(unsortedList);
+        
+        System.out.println("The fourth smallest element is: " + fourthSmallest);
+    }
+
+    // Function to find the fourth smallest element in an unsorted list
+    private static int findFourthSmallestElement(int[] arr) {
+        if (arr.length < 4) {
+            System.out.println("List is too small to find the fourth smallest element.");
+            return -1; // Return a default value or handle the case appropriately
+        }
+
+        // Sort the array in ascending order
+        Arrays.sort(arr);
+
+        // The fourth smallest element is at index 3
+        return arr[3];
+    }
+}
