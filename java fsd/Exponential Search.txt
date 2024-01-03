@@ -1,0 +1,51 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ExponentialSearch {
+
+    public static int exponentialSearch(int[] array, int target) {
+        int size = array.length;
+
+        if (array[0] == target) {
+            return 0; // Return the index of the target element if found at the first position
+        }
+
+        int i = 1;
+        while (i < size && array[i] <= target) {
+            i *= 2; // Double the index to expand the search range
+        }
+
+        return Arrays.binarySearch(array, i / 2, Math.min(i, size), target);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+
+        int[] array = new int[size];
+
+        System.out.println("Enter the sorted elements of the array:");
+
+        for (int i = 0; i < size; i++) {
+            array[i] = scanner.nextInt();
+        }
+
+        // Sort the array (Exponential search requires a sorted array)
+        Arrays.sort(array);
+
+        System.out.print("Enter the element to search for: ");
+        int target = scanner.nextInt();
+
+        int result = exponentialSearch(array, target);
+
+        if (result >= 0) {
+            System.out.println("Element found at index: " + result);
+        } else {
+            System.out.println("Element not found in the array.");
+        }
+
+        scanner.close();
+    }
+}
