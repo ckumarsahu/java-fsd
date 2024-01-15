@@ -1,0 +1,45 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JSP Implicit Objects Demo</title>
+</head>
+<body>
+
+<h2>Implicit Objects Demo</h2>
+
+<%
+    // request implicit object
+    String paramName = request.getParameter("name");
+    %>
+    <p>Parameter 'name' from the request: <%= paramName %></p>
+
+<%
+    // session implicit object
+    session.setAttribute("user", "John Doe");
+    String username = (String) session.getAttribute("user");
+    %>
+    <p>Username from the session: <%= username %></p>
+
+<%
+    // application implicit object
+    application.setAttribute("appAttribute", "This is an application attribute");
+    String appAttribute = (String) application.getAttribute("appAttribute");
+    %>
+    <p>Application attribute: <%= appAttribute %></p>
+
+<%
+    // pageContext implicit object
+    pageContext.setAttribute("pageAttribute", "This is a page attribute", PageContext.PAGE_SCOPE);
+    String pageAttribute = (String) pageContext.getAttribute("pageAttribute");
+    %>
+    <p>Page attribute: <%= pageAttribute %></p>
+
+<%
+    // out implicit object
+    out.println("<p>This is printed using the out implicit object</p>");
+%>
+
+</body>
+</html>

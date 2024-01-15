@@ -1,0 +1,33 @@
+Write a program to demonstrate the use of JSP Directives.
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="header.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JSP Directives Demo</title>
+</head>
+<body>
+
+<%
+    // Page Directive: Setting a page-level attribute
+    pageContext.setAttribute("pageTitle", "JSP Directives Demo", PageContext.PAGE_SCOPE);
+%>
+
+<%@ include file="navigation.jsp" %>
+
+<h2><%= pageContext.getAttribute("pageTitle") %></h2>
+
+<p>This is a JSP page demonstrating the use of JSP directives.</p>
+
+<%
+    // Include Directive: Including another JSP file
+%>
+
+<%@ include file="footer.jsp" %>
+
+</body>
+</html>
